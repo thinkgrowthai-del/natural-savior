@@ -335,6 +335,114 @@
     max-width: 240px; text-align: right; line-height: 1.5;
   }
 
+  /* PRODUCT IMAGE */
+  .product-img-wrap {
+    width: 100%; height: 220px; overflow: hidden;
+    margin-bottom: 24px; cursor: pointer;
+    position: relative;
+  }
+  .product-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+  .product-img-overlay {
+    position: absolute; inset: 0;
+    background: rgba(92,61,46,0.0);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s;
+  }
+  .product-card:hover .product-img-overlay { background: rgba(92,61,46,0.18); }
+  .overlay-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--white); font-weight: 500;
+    opacity: 0; transition: opacity 0.3s;
+    background: rgba(92,61,46,0.55); padding: 8px 18px;
+  }
+  .product-card:hover .overlay-label { opacity: 1; }
+
+  /* MODAL */
+  .modal-backdrop {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(40,24,16,0.65);
+    align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal {
+    background: var(--cream); max-width: 760px; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--gold-light);
+    position: relative; max-height: 90vh; overflow: hidden;
+    animation: modalIn 0.35s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal-img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 340px; }
+  .modal-body { padding: 40px 36px; overflow-y: auto; display: flex; flex-direction: column; }
+  .modal-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--sage-deep);
+    background: var(--sage-light); padding: 4px 12px;
+    margin-bottom: 16px; font-weight: 500; align-self: flex-start;
+  }
+  .modal-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 400; color: var(--brown);
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .modal-desc {
+    font-size: 14px; line-height: 1.85; color: var(--brown-light);
+    font-weight: 300; margin-bottom: 20px;
+  }
+  .modal-ingredients-label {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold-deep); margin-bottom: 8px; font-weight: 500;
+  }
+  .modal-ingredients {
+    font-size: 13px; color: var(--brown-light); line-height: 1.7;
+    margin-bottom: 24px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--gold-light);
+  }
+  .modal-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px; font-style: italic; color: var(--gold-deep);
+    line-height: 1.5; padding-left: 14px;
+    border-left: 2px solid var(--gold);
+    margin-bottom: 28px;
+  }
+  .modal-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
+  .modal-btn-primary {
+    flex: 1; padding: 12px 20px; background: var(--sage);
+    color: var(--white); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; font-family: 'Jost', sans-serif;
+    font-weight: 500; border: none; cursor: pointer; transition: all 0.3s;
+  }
+  .modal-btn-primary:hover { background: var(--sage-deep); }
+  .modal-btn-ghost {
+    flex: 1; padding: 12px 20px; background: transparent;
+    color: var(--brown); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; font-family: 'Jost', sans-serif;
+    font-weight: 500; border: 1px solid var(--brown-light); cursor: pointer;
+    transition: all 0.3s;
+  }
+  .modal-btn-ghost:hover { border-color: var(--sage); color: var(--sage-deep); }
+  .modal-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 22px; color: var(--brown-light); line-height: 1;
+    font-family: 'Jost', sans-serif; z-index: 10;
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--brown); }
+
+  @media (max-width: 620px) {
+    .modal { grid-template-columns: 1fr; }
+    .modal-img { min-height: 220px; max-height: 240px; }
+  }
+
   /* FADE IN ANIMATIONS */
   .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -423,14 +531,22 @@
   <h2 class="section-title fade-up">Two products. <em>One purpose.</em></h2>
   <p class="section-sub fade-up delay-1">To honour the body you were given — with ingredients as pure and intentional as the life you're building.</p>
   <div class="products-grid">
-    <div class="product-card fade-up delay-1">
+    <div class="product-card fade-up delay-1" onclick="openModal('butter')">
+      <div class="product-img-wrap">
+        <img src="body-butter.jpg" alt="Whipped All-Over Body Butter">
+        <div class="product-img-overlay"><span class="overlay-label">View product</span></div>
+      </div>
       <span class="product-tag">Body care</span>
       <h3 class="product-name">Whipped All-Over Body Butter</h3>
       <p class="product-desc">Deep moisture that sinks in fast, locks in all day, and leaves skin feeling like it was made to glow. Rich, whipped, and fast-absorbing — for the woman who refuses to settle for dry skin or synthetic shortcuts.</p>
       <p class="product-ingredients">Shea butter &nbsp;·&nbsp; Cocoa butter &nbsp;·&nbsp; Vitamin E &nbsp;·&nbsp; Coconut oil</p>
       <p class="product-quote">"Your body is a temple. Treat it as one."</p>
     </div>
-    <div class="product-card fade-up delay-2">
+    <div class="product-card fade-up delay-2" onclick="openModal('oil')">
+      <div class="product-img-wrap">
+        <img src="hair-oil.jpg" alt="Savior's Hair Grow Oil">
+        <div class="product-img-overlay"><span class="overlay-label">View product</span></div>
+      </div>
       <span class="product-tag">Hair care</span>
       <h3 class="product-name">Savior's Hair Grow Oil</h3>
       <p class="product-desc">Eight natural oils working together to strengthen, nourish, and grow your crown from root to tip. Peppermint to wake your scalp, hibiscus to feed your roots, castor to lock in length. For the woman who knows her power is in her crown.</p>
@@ -473,6 +589,26 @@
   </div>
 </section>
 
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="closeModalOnBackdrop(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <img id="modal-img" src="" alt="" class="modal-img">
+    <div class="modal-body">
+      <span class="modal-tag" id="modal-tag"></span>
+      <h3 class="modal-name" id="modal-name"></h3>
+      <p class="modal-desc" id="modal-desc"></p>
+      <p class="modal-ingredients-label">Ingredients</p>
+      <p class="modal-ingredients" id="modal-ingredients"></p>
+      <p class="modal-quote" id="modal-quote"></p>
+      <div class="modal-ctas">
+        <button class="modal-btn-primary">Order now</button>
+        <button class="modal-btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <img src="natural-savior-logo.png" alt="Natural Savior" class="footer-logo">
@@ -485,6 +621,49 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const products = {
+    butter: {
+      tag: 'Body care',
+      name: 'Whipped All-Over Body Butter',
+      img: 'body-butter.jpg',
+      desc: 'Deep moisture that sinks in fast, locks in all day, and leaves skin feeling like it was made to glow. Rich, whipped, and fast-absorbing — crafted for women who refuse to settle for dry skin or synthetic shortcuts. Shea and cocoa butter combine to seal in hydration while Vitamin E works quietly beneath the surface to repair and restore.',
+      ingredients: 'Shea butter · Cocoa butter · Vitamin E · Coconut oil',
+      quote: '"Your body is a temple. Treat it as one."'
+    },
+    oil: {
+      tag: 'Hair care',
+      name: "Savior's Hair Grow Oil",
+      img: 'hair-oil.jpg',
+      desc: 'Eight natural oils working in harmony to strengthen, nourish, and grow your crown from root to tip. Peppermint awakens the scalp, hibiscus feeds the follicles, castor locks in length. 100ml of pure intention — for the woman who knows her power lives in her crown.',
+      ingredients: 'Olive oil · Tea tree · Peppermint · Castor oil · Pomegranate seed oil · Almond oil · Jojoba oil · Hibiscus',
+      quote: '"Your power is within your hair."'
+    }
+  };
+
+  function openModal(key) {
+    const p = products[key];
+    document.getElementById('modal-img').src = p.img;
+    document.getElementById('modal-img').alt = p.name;
+    document.getElementById('modal-tag').textContent = p.tag;
+    document.getElementById('modal-name').textContent = p.name;
+    document.getElementById('modal-desc').textContent = p.desc;
+    document.getElementById('modal-ingredients').textContent = p.ingredients;
+    document.getElementById('modal-quote').textContent = p.quote;
+    document.getElementById('modal-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOnBackdrop(e) {
+    if (e.target === document.getElementById('modal-backdrop')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
