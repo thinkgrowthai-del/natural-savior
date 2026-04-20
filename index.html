@@ -7,443 +7,172 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sage: #8AAE7E;
-    --sage-light: #C8DBC2;
-    --sage-deep: #5C7A52;
-    --gold: #C9A96E;
-    --gold-light: #E8D5B0;
-    --gold-deep: #9B7A3E;
-    --blush: #F5EEF0;
-    --blush-deep: #EAD8DC;
-    --cream: #FDFAF6;
-    --brown: #5C3D2E;
-    --brown-light: #8B6347;
-    --white: #FFFFFF;
+    --sage: #8AAE7E; --sage-light: #C8DBC2; --sage-deep: #5C7A52;
+    --gold: #C9A96E; --gold-light: #E8D5B0; --gold-deep: #9B7A3E;
+    --blush: #F5EEF0; --cream: #FDFAF6;
+    --brown: #5C3D2E; --brown-light: #8B6347; --white: #FFFFFF;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--cream);
-    color: var(--brown);
-    overflow-x: hidden;
-  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--brown); overflow-x: hidden; }
 
   /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 48px;
-    background: rgba(253,250,246,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--gold-light);
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; background: rgba(253,250,246,0.93); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gold-light); }
   .nav-logo { height: 52px; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown-light); text-decoration: none; font-weight: 400; }
   .nav-links a:hover { color: var(--gold-deep); }
-  .nav-cta {
-    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 10px 24px; border: 1px solid var(--gold);
-    color: var(--gold-deep); background: transparent; cursor: pointer;
-    font-family: 'Jost', sans-serif; font-weight: 500;
-    transition: all 0.3s;
-  }
+  .nav-cta { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 24px; border: 1px solid var(--gold); color: var(--gold-deep); background: transparent; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; transition: all 0.3s; }
   .nav-cta:hover { background: var(--gold); color: var(--white); }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    padding-top: 84px;
-  }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 64px 80px 80px;
-  }
-  .hero-eyebrow {
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 24px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
-  }
-  .hero-headline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 60px; font-weight: 300; line-height: 1.1;
-    color: var(--brown); margin-bottom: 24px;
-    letter-spacing: -0.01em;
-  }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 84px; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px 80px 80px; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-headline { font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 300; line-height: 1.1; color: var(--brown); margin-bottom: 24px; letter-spacing: -0.01em; }
   .hero-headline em { font-style: italic; color: var(--sage-deep); }
-  .hero-sub {
-    font-size: 15px; line-height: 1.8; color: var(--brown-light);
-    font-weight: 300; max-width: 420px; margin-bottom: 40px;
-  }
+  .hero-sub { font-size: 15px; line-height: 1.8; color: var(--brown-light); font-weight: 300; max-width: 420px; margin-bottom: 40px; }
   .hero-bullets { list-style: none; margin-bottom: 48px; }
-  .hero-bullets li {
-    font-size: 13px; letter-spacing: 0.04em; color: var(--brown);
-    padding: 8px 0; border-bottom: 1px solid var(--gold-light);
-    display: flex; align-items: center; gap: 12px;
-  }
-  .hero-bullets li::before {
-    content: ''; display: block; width: 6px; height: 6px;
-    border-radius: 50%; background: var(--sage); flex-shrink: 0;
-  }
-  .hero-ctas { display: flex; gap: 16px; align-items: center; }
-  .btn-primary {
-    padding: 14px 36px; background: var(--sage);
-    color: var(--white); font-size: 12px; letter-spacing: 0.14em;
-    text-transform: uppercase; font-family: 'Jost', sans-serif;
-    font-weight: 500; border: none; cursor: pointer;
-    transition: all 0.3s;
-  }
+  .hero-bullets li { font-size: 13px; letter-spacing: 0.04em; color: var(--brown); padding: 8px 0; border-bottom: 1px solid var(--gold-light); display: flex; align-items: center; gap: 12px; }
+  .hero-bullets li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); flex-shrink: 0; }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .btn-primary { padding: 14px 36px; background: var(--sage); color: var(--white); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
   .btn-primary:hover { background: var(--sage-deep); }
-  .btn-ghost {
-    padding: 14px 36px; background: transparent;
-    color: var(--brown); font-size: 12px; letter-spacing: 0.14em;
-    text-transform: uppercase; font-family: 'Jost', sans-serif;
-    font-weight: 500; border: 1px solid var(--brown-light); cursor: pointer;
-    transition: all 0.3s;
-  }
+  .btn-ghost { padding: 14px 36px; background: transparent; color: var(--brown); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: 1px solid var(--brown-light); cursor: pointer; transition: all 0.3s; }
   .btn-ghost:hover { border-color: var(--sage); color: var(--sage-deep); }
-
-  .hero-right {
-    background: var(--blush);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-    padding: 80px 40px;
-  }
-  .hero-logo-large {
-    width: 380px; max-width: 100%;
-    animation: floatLogo 6s ease-in-out infinite;
-    position: relative; z-index: 2;
-  }
-  @keyframes floatLogo {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-  .hero-right-deco {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--sage-light), var(--gold), var(--sage-light));
-  }
-  .hero-verse {
-    margin-top: 32px; text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px; font-style: italic; color: var(--brown-light);
-    line-height: 1.6;
-  }
+  .hero-right { background: var(--blush); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 80px 40px; }
+  .hero-logo-large { width: 380px; max-width: 100%; animation: floatLogo 6s ease-in-out infinite; position: relative; z-index: 2; }
+  @keyframes floatLogo { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero-right-deco { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--sage-light), var(--gold), var(--sage-light)); }
+  .hero-verse { margin-top: 32px; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: var(--brown-light); line-height: 1.6; }
 
   /* PROOF BAR */
-  .proof-bar {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--gold-light);
-    border-bottom: 1px solid var(--gold-light);
-  }
-  .proof-item {
-    padding: 32px; text-align: center;
-    border-right: 1px solid var(--gold-light);
-  }
+  .proof-bar { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light); }
+  .proof-item { padding: 32px; text-align: center; border-right: 1px solid var(--gold-light); }
   .proof-item:last-child { border-right: none; }
-  .proof-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 40px; font-weight: 300; color: var(--sage-deep);
-    display: block; margin-bottom: 4px;
-  }
-  .proof-lbl {
-    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--brown-light); font-weight: 400;
-  }
+  .proof-val { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: var(--sage-deep); display: block; margin-bottom: 4px; }
+  .proof-lbl { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brown-light); }
 
-  /* SECTION SHARED */
+  /* SECTION */
   section { padding: 96px 80px; }
-  .section-eyebrow {
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 16px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .section-eyebrow::before {
-    content: ''; display: block; width: 24px; height: 1px; background: var(--gold);
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 44px; font-weight: 300; line-height: 1.15;
-    color: var(--brown); margin-bottom: 20px;
-  }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; line-height: 1.15; color: var(--brown); margin-bottom: 20px; }
   .section-title em { font-style: italic; color: var(--sage-deep); }
-  .section-sub {
-    font-size: 15px; line-height: 1.8; color: var(--brown-light);
-    font-weight: 300; max-width: 540px; margin-bottom: 56px;
-  }
+  .section-sub { font-size: 15px; line-height: 1.8; color: var(--brown-light); font-weight: 300; max-width: 540px; margin-bottom: 56px; }
 
   /* PRODUCTS */
   .products-section { background: var(--white); }
   .products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-  .product-card {
-    background: var(--cream); padding: 48px;
-    border: 1px solid var(--gold-light);
-    transition: all 0.4s;
-    position: relative; overflow: hidden;
-  }
-  .product-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: var(--sage-light); transform: scaleX(0); transform-origin: left;
-    transition: transform 0.4s;
-  }
+  .product-card { background: var(--cream); padding: 48px; border: 1px solid var(--gold-light); transition: all 0.4s; position: relative; overflow: hidden; cursor: pointer; }
+  .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--sage-light); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
   .product-card:hover::before { transform: scaleX(1); }
   .product-card:hover { background: var(--blush); }
-  .product-tag {
-    display: inline-block; font-size: 10px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--sage-deep);
-    background: var(--sage-light); padding: 4px 12px;
-    margin-bottom: 20px; font-weight: 500;
-  }
-  .product-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 400; color: var(--brown);
-    margin-bottom: 16px; line-height: 1.2;
-  }
-  .product-desc {
-    font-size: 14px; line-height: 1.8; color: var(--brown-light);
-    font-weight: 300; margin-bottom: 24px;
-  }
-  .product-ingredients {
-    font-size: 11px; letter-spacing: 0.08em; color: var(--brown-light);
-    text-transform: uppercase; margin-bottom: 24px;
-    padding-top: 16px; border-top: 1px solid var(--gold-light);
-  }
-  .product-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px; font-style: italic; color: var(--gold-deep);
-    line-height: 1.5; padding-left: 16px;
-    border-left: 2px solid var(--gold);
-  }
+  .product-img-wrap { width: 100%; height: 220px; overflow: hidden; margin-bottom: 24px; position: relative; }
+  .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+  .product-img-overlay { position: absolute; inset: 0; background: rgba(92,61,46,0); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+  .product-card:hover .product-img-overlay { background: rgba(92,61,46,0.18); }
+  .overlay-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); font-weight: 500; opacity: 0; transition: opacity 0.3s; background: rgba(92,61,46,0.55); padding: 8px 18px; }
+  .product-card:hover .overlay-label { opacity: 1; }
+  .product-tag { display: inline-block; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-deep); background: var(--sage-light); padding: 4px 12px; margin-bottom: 20px; font-weight: 500; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--brown); margin-bottom: 16px; line-height: 1.2; }
+  .product-desc { font-size: 14px; line-height: 1.8; color: var(--brown-light); font-weight: 300; margin-bottom: 24px; }
+  .product-ingredients { font-size: 11px; letter-spacing: 0.08em; color: var(--brown-light); text-transform: uppercase; margin-bottom: 24px; padding-top: 16px; border-top: 1px solid var(--gold-light); }
+  .product-quote { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--gold-deep); line-height: 1.5; padding-left: 16px; border-left: 2px solid var(--gold); }
 
   /* FOUNDER */
-  .founder-section {
-    background: var(--blush);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: center;
-  }
+  .founder-section { background: var(--blush); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .founder-left { position: relative; }
-  .founder-logo {
-    width: 100%; max-width: 340px;
-    display: block; margin: 0 auto;
-  }
-  .founder-deco {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    width: 340px; height: 340px; border-radius: 50%;
-    border: 1px solid var(--gold-light);
-    pointer-events: none;
-  }
-  .founder-deco2 {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    width: 290px; height: 290px; border-radius: 50%;
-    border: 1px dashed var(--sage-light);
-    pointer-events: none;
-  }
-  .founder-right {}
-  .founder-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px; font-weight: 500; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--gold-deep);
-    margin-bottom: 32px; display: flex; align-items: center; gap: 12px;
-  }
+  .founder-logo { width: 100%; max-width: 340px; display: block; margin: 0 auto; }
+  .founder-deco { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 340px; height: 340px; border-radius: 50%; border: 1px solid var(--gold-light); pointer-events: none; }
+  .founder-deco2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 290px; height: 290px; border-radius: 50%; border: 1px dashed var(--sage-light); pointer-events: none; }
+  .founder-name { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
   .founder-name::after { content: ''; flex: 1; height: 1px; background: var(--gold-light); }
-  .founder-pull {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-style: italic; font-weight: 300;
-    color: var(--brown); line-height: 1.55; margin-bottom: 28px;
-  }
-  .founder-body {
-    font-size: 14px; line-height: 1.9; color: var(--brown-light);
-    font-weight: 300; margin-bottom: 20px;
-  }
-  .founder-signature {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px; font-style: italic; color: var(--gold-deep);
-    margin-top: 28px;
-  }
+  .founder-pull { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; font-weight: 300; color: var(--brown); line-height: 1.55; margin-bottom: 28px; }
+  .founder-body { font-size: 14px; line-height: 1.9; color: var(--brown-light); font-weight: 300; margin-bottom: 20px; }
+  .founder-signature { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-style: italic; color: var(--gold-deep); margin-top: 28px; }
 
   /* CLOSING CTA */
-  .cta-section {
-    background: var(--sage);
-    text-align: center; padding: 96px 80px;
-    position: relative; overflow: hidden;
-  }
-  .cta-section::before {
-    content: ''; position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .cta-eyebrow {
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--sage-light); font-weight: 500; margin-bottom: 20px;
-  }
-  .cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 48px; font-weight: 300; color: var(--white);
-    line-height: 1.15; margin-bottom: 20px; position: relative;
-  }
+  .cta-section { background: var(--sage); text-align: center; padding: 96px 80px; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+  .cta-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage-light); font-weight: 500; margin-bottom: 20px; position: relative; }
+  .cta-title { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 20px; position: relative; }
   .cta-title em { font-style: italic; color: var(--gold-light); }
-  .cta-sub {
-    font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 300;
-    max-width: 480px; margin: 0 auto 48px; line-height: 1.8;
-  }
-  .cta-bullets {
-    list-style: none; display: flex; gap: 40px; justify-content: center;
-    margin-bottom: 48px; flex-wrap: wrap;
-  }
-  .cta-bullets li {
-    font-size: 13px; color: rgba(255,255,255,0.85); letter-spacing: 0.04em;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .cta-bullets li::before {
-    content: ''; display: block; width: 5px; height: 5px;
-    border-radius: 50%; background: var(--gold-light); flex-shrink: 0;
-  }
-  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .btn-white {
-    padding: 14px 40px; background: var(--white);
-    color: var(--sage-deep); font-size: 12px; letter-spacing: 0.14em;
-    text-transform: uppercase; font-family: 'Jost', sans-serif;
-    font-weight: 500; border: none; cursor: pointer; transition: all 0.3s;
-    position: relative;
-  }
+  .cta-sub { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 300; max-width: 480px; margin: 0 auto 48px; line-height: 1.8; position: relative; }
+  .cta-bullets { list-style: none; display: flex; gap: 40px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap; position: relative; }
+  .cta-bullets li { font-size: 13px; color: rgba(255,255,255,0.85); letter-spacing: 0.04em; display: flex; align-items: center; gap: 8px; }
+  .cta-bullets li::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--gold-light); flex-shrink: 0; }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn-white { padding: 14px 40px; background: var(--white); color: var(--sage-deep); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
   .btn-white:hover { background: var(--cream); }
-  .btn-outline-white {
-    padding: 14px 40px; background: transparent;
-    color: var(--white); font-size: 12px; letter-spacing: 0.14em;
-    text-transform: uppercase; font-family: 'Jost', sans-serif;
-    font-weight: 500; border: 1px solid rgba(255,255,255,0.5); cursor: pointer;
-    transition: all 0.3s;
-  }
+  .btn-outline-white { padding: 14px 40px; background: transparent; color: var(--white); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: 1px solid rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s; }
   .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
 
-  /* FOOTER */
-  footer {
-    background: var(--brown); color: rgba(255,255,255,0.6);
-    padding: 48px 80px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .footer-logo { height: 48px; filter: brightness(0) invert(1) opacity(0.7); }
+  /* FOOTER — no logo */
+  footer { background: var(--brown); color: rgba(255,255,255,0.6); padding: 40px 80px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
   .footer-copy { font-size: 12px; letter-spacing: 0.08em; }
-  .footer-verse {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px; font-style: italic; color: rgba(255,255,255,0.5);
-    max-width: 240px; text-align: right; line-height: 1.5;
-  }
+  .footer-verse { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; color: rgba(255,255,255,0.45); max-width: 240px; text-align: right; line-height: 1.5; }
+  .footer-socials { display: flex; gap: 14px; align-items: center; }
+  .social-icon { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+  .social-icon:hover { border-color: var(--gold); background: rgba(201,169,110,0.15); }
+  .social-icon svg { width: 15px; height: 15px; transition: all 0.3s; }
+  .social-icon svg path, .social-icon svg rect { fill: rgba(255,255,255,0.55); transition: fill 0.3s; }
+  .social-icon:hover svg path, .social-icon:hover svg rect { fill: var(--gold); }
 
-  /* PRODUCT IMAGE */
-  .product-img-wrap {
-    width: 100%; height: 220px; overflow: hidden;
-    margin-bottom: 24px; cursor: pointer;
-    position: relative;
-  }
-  .product-img-wrap img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  .product-card:hover .product-img-wrap img { transform: scale(1.04); }
-  .product-img-overlay {
-    position: absolute; inset: 0;
-    background: rgba(92,61,46,0.0);
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.3s;
-  }
-  .product-card:hover .product-img-overlay { background: rgba(92,61,46,0.18); }
-  .overlay-label {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--white); font-weight: 500;
-    opacity: 0; transition: opacity 0.3s;
-    background: rgba(92,61,46,0.55); padding: 8px 18px;
-  }
-  .product-card:hover .overlay-label { opacity: 1; }
-
-  /* MODAL */
-  .modal-backdrop {
-    display: none; position: fixed; inset: 0; z-index: 999;
-    background: rgba(40,24,16,0.65);
-    align-items: center; justify-content: center;
-    padding: 24px;
-  }
+  /* PRODUCT MODAL */
+  .modal-backdrop { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(40,24,16,0.65); align-items: center; justify-content: center; padding: 24px; }
   .modal-backdrop.open { display: flex; }
-  .modal {
-    background: var(--cream); max-width: 760px; width: 100%;
-    display: grid; grid-template-columns: 1fr 1fr;
-    border: 1px solid var(--gold-light);
-    position: relative; max-height: 90vh; overflow: hidden;
-    animation: modalIn 0.35s ease;
-  }
-  @keyframes modalIn {
-    from { opacity: 0; transform: translateY(20px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
+  .modal { background: var(--cream); max-width: 760px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--gold-light); position: relative; max-height: 90vh; overflow: hidden; animation: modalIn 0.35s ease; }
+  @keyframes modalIn { from{opacity:0;transform:translateY(20px) scale(0.98)} to{opacity:1;transform:translateY(0) scale(1)} }
   .modal-img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 340px; }
-  .modal-body { padding: 40px 36px; overflow-y: auto; display: flex; flex-direction: column; }
-  .modal-tag {
-    display: inline-block; font-size: 10px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--sage-deep);
-    background: var(--sage-light); padding: 4px 12px;
-    margin-bottom: 16px; font-weight: 500; align-self: flex-start;
-  }
-  .modal-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 400; color: var(--brown);
-    margin-bottom: 16px; line-height: 1.2;
-  }
-  .modal-desc {
-    font-size: 14px; line-height: 1.85; color: var(--brown-light);
-    font-weight: 300; margin-bottom: 20px;
-  }
-  .modal-ingredients-label {
-    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gold-deep); margin-bottom: 8px; font-weight: 500;
-  }
-  .modal-ingredients {
-    font-size: 13px; color: var(--brown-light); line-height: 1.7;
-    margin-bottom: 24px; padding-bottom: 20px;
-    border-bottom: 1px solid var(--gold-light);
-  }
-  .modal-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px; font-style: italic; color: var(--gold-deep);
-    line-height: 1.5; padding-left: 14px;
-    border-left: 2px solid var(--gold);
-    margin-bottom: 28px;
-  }
+  .modal-body { padding: 36px 32px; overflow-y: auto; display: flex; flex-direction: column; }
+  .modal-tag { display: inline-block; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-deep); background: var(--sage-light); padding: 4px 12px; margin-bottom: 14px; font-weight: 500; align-self: flex-start; }
+  .modal-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--brown); margin-bottom: 14px; line-height: 1.2; }
+  .modal-desc { font-size: 13px; line-height: 1.85; color: var(--brown-light); font-weight: 300; margin-bottom: 16px; }
+  .modal-ingredients-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 6px; font-weight: 500; }
+  .modal-ingredients { font-size: 13px; color: var(--brown-light); line-height: 1.7; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--gold-light); }
+  .modal-quote { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: var(--gold-deep); line-height: 1.5; padding-left: 14px; border-left: 2px solid var(--gold); margin-bottom: 20px; }
+
+  /* QUANTITY */
+  .qty-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .qty-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown-light); font-weight: 500; }
+  .qty-ctrl { display: flex; align-items: center; border: 1px solid var(--gold-light); }
+  .qty-btn { width: 34px; height: 34px; background: var(--cream); border: none; cursor: pointer; font-size: 18px; color: var(--brown); font-family: 'Jost', sans-serif; display: flex; align-items: center; justify-content: center; transition: background 0.2s; user-select: none; }
+  .qty-btn:hover { background: var(--sage-light); }
+  .qty-num { width: 44px; height: 34px; text-align: center; font-size: 15px; font-weight: 500; color: var(--brown); background: var(--white); border-left: 1px solid var(--gold-light); border-right: 1px solid var(--gold-light); display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; }
+
   .modal-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
-  .modal-btn-primary {
-    flex: 1; padding: 12px 20px; background: var(--sage);
-    color: var(--white); font-size: 11px; letter-spacing: 0.14em;
-    text-transform: uppercase; font-family: 'Jost', sans-serif;
-    font-weight: 500; border: none; cursor: pointer; transition: all 0.3s;
-  }
+  .modal-btn-primary { flex: 1; padding: 12px 20px; background: var(--sage); color: var(--white); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: all 0.3s; }
   .modal-btn-primary:hover { background: var(--sage-deep); }
-  .modal-btn-ghost {
-    flex: 1; padding: 12px 20px; background: transparent;
-    color: var(--brown); font-size: 11px; letter-spacing: 0.14em;
-    text-transform: uppercase; font-family: 'Jost', sans-serif;
-    font-weight: 500; border: 1px solid var(--brown-light); cursor: pointer;
-    transition: all 0.3s;
-  }
+  .modal-btn-ghost { flex: 1; padding: 12px 20px; background: transparent; color: var(--brown); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: 1px solid var(--brown-light); cursor: pointer; transition: all 0.3s; }
   .modal-btn-ghost:hover { border-color: var(--sage); color: var(--sage-deep); }
-  .modal-close {
-    position: absolute; top: 14px; right: 16px;
-    background: none; border: none; cursor: pointer;
-    font-size: 22px; color: var(--brown-light); line-height: 1;
-    font-family: 'Jost', sans-serif; z-index: 10;
-    transition: color 0.2s;
-  }
+  .modal-close { position: absolute; top: 12px; right: 14px; background: none; border: none; cursor: pointer; font-size: 22px; color: var(--brown-light); line-height: 1; z-index: 10; transition: color 0.2s; }
   .modal-close:hover { color: var(--brown); }
 
-  @media (max-width: 620px) {
-    .modal { grid-template-columns: 1fr; }
-    .modal-img { min-height: 220px; max-height: 240px; }
-  }
+  /* CONTACT MODAL */
+  .contact-backdrop { display: none; position: fixed; inset: 0; z-index: 600; background: rgba(40,24,16,0.7); align-items: center; justify-content: center; padding: 24px; }
+  .contact-backdrop.open { display: flex; }
+  .contact-modal { background: var(--cream); max-width: 440px; width: 100%; border: 1px solid var(--gold-light); position: relative; padding: 48px 40px; animation: modalIn 0.35s ease; }
+  .contact-modal-logo { width: 88px; display: block; margin: 0 auto 20px; }
+  .contact-modal-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: var(--brown); text-align: center; margin-bottom: 8px; line-height: 1.2; }
+  .contact-modal-title em { font-style: italic; color: var(--sage-deep); }
+  .contact-modal-sub { font-size: 13px; color: var(--brown-light); text-align: center; line-height: 1.7; margin-bottom: 28px; }
+  .contact-field { margin-bottom: 16px; }
+  .contact-field label { display: block; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-deep); font-weight: 500; margin-bottom: 6px; }
+  .contact-field input { width: 100%; padding: 12px 14px; border: 1px solid var(--gold-light); background: var(--white); font-family: 'Jost', sans-serif; font-size: 14px; color: var(--brown); outline: none; transition: border 0.2s; }
+  .contact-field input:focus { border-color: var(--sage); }
+  .contact-submit { width: 100%; padding: 14px; background: var(--sage); color: var(--white); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: none; cursor: pointer; margin-top: 8px; transition: background 0.3s; }
+  .contact-submit:hover { background: var(--sage-deep); }
+  .contact-success { display: none; text-align: center; padding: 20px 0; }
+  .contact-success-check { width: 48px; height: 48px; border-radius: 50%; background: var(--sage-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .contact-success-check svg { width: 22px; height: 22px; }
+  .contact-success-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--sage-deep); margin-bottom: 10px; }
+  .contact-success-msg { font-size: 13px; color: var(--brown-light); line-height: 1.8; }
+  .contact-close { position: absolute; top: 12px; right: 14px; background: none; border: none; cursor: pointer; font-size: 22px; color: var(--brown-light); line-height: 1; transition: color 0.2s; }
+  .contact-close:hover { color: var(--brown); }
 
-  /* FADE IN ANIMATIONS */
+  /* ANIMATIONS */
   .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
   .delay-1 { transition-delay: 0.1s; }
@@ -464,11 +193,14 @@
     .products-grid { grid-template-columns: 1fr; }
     .proof-bar { grid-template-columns: 1fr; }
     .proof-item { border-right: none; border-bottom: 1px solid var(--gold-light); }
-    footer { flex-direction: column; gap: 24px; text-align: center; }
-    .footer-verse { text-align: center; }
+    footer { flex-direction: column; align-items: center; text-align: center; padding: 40px 24px; }
+    .footer-verse { text-align: center; max-width: 100%; }
     .cta-section { padding: 64px 32px; }
     .cta-title { font-size: 36px; }
     .cta-bullets { flex-direction: column; align-items: center; gap: 16px; }
+    .modal { grid-template-columns: 1fr; }
+    .modal-img { min-height: 220px; max-height: 260px; }
+    .contact-modal { padding: 40px 24px; }
   }
 </style>
 </head>
@@ -482,7 +214,7 @@
     <li><a href="#story">Our story</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-cta">Shop now</button>
+  <button class="nav-cta" onclick="openContact()">Join the waitlist</button>
 </nav>
 
 <!-- HERO -->
@@ -498,31 +230,22 @@
       <li>Delivered straight to your door</li>
     </ul>
     <div class="hero-ctas fade-up delay-4">
-      <button class="btn-primary">Shop the collection</button>
-      <button class="btn-ghost">WhatsApp us</button>
+      <a href="#products" class="btn-primary">Shop the collection</a>
+      <button class="btn-ghost" onclick="openContact()">Join the waitlist</button>
     </div>
   </div>
   <div class="hero-right">
     <img src="natural-savior-logo.png" alt="Natural Savior" class="hero-logo-large">
-    <p class="hero-verse">"She is clothed with strength and dignity,<br>and she laughs without fear of the future."<br><span style="font-size:12px; letter-spacing:0.1em; font-style:normal; font-family:'Jost',sans-serif; color: var(--gold);">Proverbs 31:25</span></p>
+    <p class="hero-verse">"She is clothed with strength and dignity,<br>and she laughs without fear of the future."<br><span style="font-size:12px;letter-spacing:0.1em;font-style:normal;font-family:'Jost',sans-serif;color:var(--gold);">Proverbs 31:25</span></p>
     <div class="hero-right-deco"></div>
   </div>
 </section>
 
 <!-- PROOF BAR -->
 <div class="proof-bar">
-  <div class="proof-item fade-up">
-    <span class="proof-val">100%</span>
-    <span class="proof-lbl">Natural ingredients</span>
-  </div>
-  <div class="proof-item fade-up delay-1">
-    <span class="proof-val">0</span>
-    <span class="proof-lbl">Harsh chemicals</span>
-  </div>
-  <div class="proof-item fade-up delay-2">
-    <span class="proof-val">Faith</span>
-    <span class="proof-lbl">In every bottle</span>
-  </div>
+  <div class="proof-item fade-up"><span class="proof-val">100%</span><span class="proof-lbl">Natural ingredients</span></div>
+  <div class="proof-item fade-up delay-1"><span class="proof-val">0</span><span class="proof-lbl">Harsh chemicals</span></div>
+  <div class="proof-item fade-up delay-2"><span class="proof-val">Faith</span><span class="proof-lbl">In every bottle</span></div>
 </div>
 
 <!-- PRODUCTS -->
@@ -568,7 +291,7 @@
     <p class="founder-pull fade-up">"I used to read the back of every product I bought — and what I found frightened me. Chemicals I couldn't pronounce, fillers that did nothing, ingredients that felt like they were made for anyone but me."</p>
     <p class="founder-body fade-up delay-1">So I went back to the source. I started making my own — drawing from natural ingredients I could trust, guided by the belief that how we care for ourselves is an act of worship. Natural Savior was born out of that conviction: that you deserve products as pure and intentional as the life you're building.</p>
     <p class="founder-body fade-up delay-2">Every tin and every bottle carries a scripture, a reminder, and a promise — that what you put on your body matters, and you are worth the very best.</p>
-    <p class="founder-body fade-up delay-3" style="font-style: italic; color: var(--gold-deep);">"This isn't just skincare. It's self-care as a spiritual practice."</p>
+    <p class="founder-body fade-up delay-3" style="font-style:italic;color:var(--gold-deep);">"This isn't just skincare. It's self-care as a spiritual practice."</p>
     <p class="founder-signature">Donea x</p>
   </div>
 </section>
@@ -577,19 +300,19 @@
 <section class="cta-section" id="contact">
   <p class="cta-eyebrow">Ready to begin?</p>
   <h2 class="cta-title">Treat your body like <em>the temple it is.</em></h2>
-  <p class="cta-sub">Order today and receive your products straight to your door. Message us on WhatsApp for personal recommendations, bundles, or to place an order.</p>
+  <p class="cta-sub">Be the first to know when new collections drop. Join the waitlist for early access, exclusive offers, and a personal note from Donea.</p>
   <ul class="cta-bullets">
     <li>Ingredients your skin will actually thank you for</li>
     <li>Handcrafted in small batches — no shortcuts</li>
     <li>Easy to order, delivered with love</li>
   </ul>
   <div class="cta-btns">
-    <button class="btn-white">Shop the collection</button>
-    <button class="btn-outline-white">Message Donea on WhatsApp</button>
+    <a href="#products" class="btn-white">Shop the collection</a>
+    <button class="btn-outline-white" onclick="openContact()">Join the waitlist</button>
   </div>
 </section>
 
-<!-- MODAL -->
+<!-- PRODUCT MODAL -->
 <div class="modal-backdrop" id="modal-backdrop" onclick="closeModalOnBackdrop(event)">
   <div class="modal" id="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -601,18 +324,67 @@
       <p class="modal-ingredients-label">Ingredients</p>
       <p class="modal-ingredients" id="modal-ingredients"></p>
       <p class="modal-quote" id="modal-quote"></p>
+      <div class="qty-row">
+        <span class="qty-label">Qty</span>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty(-1)">&#8722;</button>
+          <div class="qty-num" id="qty-display">1</div>
+          <button class="qty-btn" onclick="changeQty(1)">&#43;</button>
+        </div>
+      </div>
       <div class="modal-ctas">
-        <button class="modal-btn-primary">Order now</button>
+        <button class="modal-btn-primary" onclick="closeModal(); openContact();">Order now</button>
         <button class="modal-btn-ghost" onclick="closeModal()">Close</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- CONTACT / WAITLIST MODAL -->
+<div class="contact-backdrop" id="contact-backdrop" onclick="closeContactOnBackdrop(event)">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="closeContact()">&times;</button>
+    <img src="natural-savior-logo.png" alt="Natural Savior" class="contact-modal-logo">
+    <h2 class="contact-modal-title">Join the <em>waitlist</em></h2>
+    <p class="contact-modal-sub">Be first in line for new drops, exclusive offers, and a personal note from Donea herself.</p>
+    <div id="contact-form">
+      <div class="contact-field">
+        <label>First name</label>
+        <input type="text" id="contact-name" placeholder="Your first name" autocomplete="given-name">
+      </div>
+      <div class="contact-field">
+        <label>Email address</label>
+        <input type="email" id="contact-email" placeholder="your@email.com" autocomplete="email">
+      </div>
+      <button class="contact-submit" onclick="submitContact()">Join the waitlist</button>
+    </div>
+    <div class="contact-success" id="contact-success">
+      <div class="contact-success-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#5C7A52" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <p class="contact-success-title">You're on the list!</p>
+      <p class="contact-success-msg">Thank you for joining the Natural Savior family.<br>Donea will be in touch with something special just for you.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER — no logo -->
 <footer>
-  <img src="natural-savior-logo.png" alt="Natural Savior" class="footer-logo">
   <p class="footer-copy">&copy; 2024 Natural Savior. All rights reserved.</p>
+  <div class="footer-socials">
+    <!-- Facebook -->
+    <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    </a>
+    <!-- TikTok -->
+    <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.16 8.16 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+    </a>
+    <!-- Instagram -->
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+  </div>
   <p class="footer-verse">"She is more precious than rubies."<br>Proverbs 3:15</p>
 </footer>
 
@@ -624,25 +396,29 @@
 
   const products = {
     butter: {
-      tag: 'Body care',
-      name: 'Whipped All-Over Body Butter',
-      img: 'body-butter.jpg',
+      tag: 'Body care', name: 'Whipped All-Over Body Butter', img: 'body-butter.jpg',
       desc: 'Deep moisture that sinks in fast, locks in all day, and leaves skin feeling like it was made to glow. Rich, whipped, and fast-absorbing — crafted for women who refuse to settle for dry skin or synthetic shortcuts. Shea and cocoa butter combine to seal in hydration while Vitamin E works quietly beneath the surface to repair and restore.',
       ingredients: 'Shea butter · Cocoa butter · Vitamin E · Coconut oil',
       quote: '"Your body is a temple. Treat it as one."'
     },
     oil: {
-      tag: 'Hair care',
-      name: "Savior's Hair Grow Oil",
-      img: 'hair-oil.jpg',
+      tag: 'Hair care', name: "Savior's Hair Grow Oil", img: 'hair-oil.jpg',
       desc: 'Eight natural oils working in harmony to strengthen, nourish, and grow your crown from root to tip. Peppermint awakens the scalp, hibiscus feeds the follicles, castor locks in length. 100ml of pure intention — for the woman who knows her power lives in her crown.',
       ingredients: 'Olive oil · Tea tree · Peppermint · Castor oil · Pomegranate seed oil · Almond oil · Jojoba oil · Hibiscus',
       quote: '"Your power is within your hair."'
     }
   };
 
+  let qty = 1;
+  function changeQty(delta) {
+    qty = Math.max(1, qty + delta);
+    document.getElementById('qty-display').textContent = qty;
+  }
+
   function openModal(key) {
     const p = products[key];
+    qty = 1;
+    document.getElementById('qty-display').textContent = '1';
     document.getElementById('modal-img').src = p.img;
     document.getElementById('modal-img').alt = p.name;
     document.getElementById('modal-tag').textContent = p.tag;
@@ -653,17 +429,40 @@
     document.getElementById('modal-backdrop').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
   function closeModal() {
     document.getElementById('modal-backdrop').classList.remove('open');
     document.body.style.overflow = '';
   }
-
   function closeModalOnBackdrop(e) {
     if (e.target === document.getElementById('modal-backdrop')) closeModal();
   }
 
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  function openContact() {
+    document.getElementById('contact-form').style.display = 'block';
+    document.getElementById('contact-success').style.display = 'none';
+    document.getElementById('contact-name').value = '';
+    document.getElementById('contact-email').value = '';
+    document.getElementById('contact-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeContact() {
+    document.getElementById('contact-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeContactOnBackdrop(e) {
+    if (e.target === document.getElementById('contact-backdrop')) closeContact();
+  }
+  function submitContact() {
+    const name = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    if (!name || !email) { alert('Please fill in both fields.'); return; }
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('contact-success').style.display = 'block';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeModal(); closeContact(); }
+  });
 </script>
 </body>
 </html>
