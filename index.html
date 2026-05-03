@@ -47,11 +47,11 @@
   .hero-verse { margin-top: 32px; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: var(--brown-light); line-height: 1.6; }
 
   /* PROOF BAR */
-  .proof-bar { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light); }
-  .proof-item { padding: 32px; text-align: center; border-right: 1px solid var(--gold-light); }
+  .proof-bar { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light); }
+  .proof-item { padding: 28px 16px; text-align: center; border-right: 1px solid var(--gold-light); }
   .proof-item:last-child { border-right: none; }
-  .proof-val { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: var(--sage-deep); display: block; margin-bottom: 4px; }
-  .proof-lbl { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brown-light); }
+  .proof-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--sage-deep); display: block; margin-bottom: 8px; }
+  .proof-lbl { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown-light); line-height: 1.5; }
 
   /* SECTION */
   section { padding: 96px 80px; }
@@ -63,7 +63,7 @@
 
   /* PRODUCTS */
   .products-section { background: var(--white); }
-  .products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
   .product-card { background: var(--cream); padding: 48px; border: 1px solid var(--gold-light); transition: all 0.4s; position: relative; overflow: hidden; cursor: pointer; }
   .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--sage-light); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
   .product-card:hover::before { transform: scaleX(1); }
@@ -80,6 +80,8 @@
   .product-desc { font-size: 14px; line-height: 1.8; color: var(--brown-light); font-weight: 300; margin-bottom: 24px; }
   .product-ingredients { font-size: 11px; letter-spacing: 0.08em; color: var(--brown-light); text-transform: uppercase; margin-bottom: 24px; padding-top: 16px; border-top: 1px solid var(--gold-light); }
   .product-quote { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--gold-deep); line-height: 1.5; padding-left: 16px; border-left: 2px solid var(--gold); }
+  .product-img-placeholder { background: var(--blush); display: flex; align-items: center; justify-content: center; }
+  .placeholder-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown-light); font-weight: 400; }
 
   /* FOUNDER */
   .founder-section { background: var(--blush); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -134,7 +136,8 @@
   .modal-desc { font-size: 13px; line-height: 1.8; color: var(--brown-light); font-weight: 300; margin-bottom: 14px; }
   .modal-ingredients-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 6px; font-weight: 500; }
   .modal-ingredients { font-size: 12px; color: var(--brown-light); line-height: 1.7; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--gold-light); }
-  .modal-quote { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--gold-deep); line-height: 1.5; padding-left: 14px; border-left: 2px solid var(--gold); }
+  .modal-quote { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--gold-deep); line-height: 1.5; padding-left: 14px; border-left: 2px solid var(--gold); margin-bottom: 12px; }
+  .modal-note { font-size: 11px; color: var(--brown-light); line-height: 1.6; font-style: italic; margin-top: 8px; padding: 10px 12px; background: var(--blush); border-left: 2px solid var(--gold-light); display: none; }
   .qty-row { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
   .modal-ctas { display: flex; gap: 10px; }
   .modal-btn-primary { flex: 1; padding: 13px 16px; background: var(--sage); color: var(--white); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: all 0.3s; }
@@ -203,9 +206,11 @@
     .founder-pull { font-size: 19px; }
     .products-grid { grid-template-columns: 1fr; }
     .product-card { padding: 32px 24px; }
-    .proof-bar { grid-template-columns: repeat(3,1fr); }
-    .proof-item { padding: 20px 12px; }
-    .proof-val { font-size: 30px; }
+    .proof-bar { grid-template-columns: repeat(2, 1fr); }
+    .proof-item { border-bottom: 1px solid var(--gold-light); }
+    .proof-item:nth-child(2) { border-right: none; }
+    .proof-item:nth-child(3) { border-right: 1px solid var(--gold-light); }
+    .proof-item:last-child { border-right: none; }
     footer { flex-direction: column; align-items: center; text-align: center; padding: 32px 24px; gap: 16px; }
     .footer-verse { text-align: center; max-width: 100%; }
     .cta-section { padding: 56px 24px; }
@@ -278,12 +283,12 @@
   <div class="hero-left">
     <div class="hero-eyebrow fade-up">Faith-led self-care</div>
     <h1 class="hero-headline fade-up delay-1">Your body is a <em>temple.</em> It's time to treat it like one.</h1>
-    <p class="hero-sub fade-up delay-2">Natural Savior makes handcrafted self-care products from the purest natural ingredients — so you can nourish your skin and hair the way God intended.</p>
+    <p class="hero-sub fade-up delay-2">Natural Saviour creates handcrafted self-care products using thoughtfully sourced ingredients – inviting you back to a more natural, intentional way of caring for yourself.</p>
     <ul class="hero-bullets fade-up delay-3">
-      <li>100% natural — no parabens, no fillers, no compromise</li>
-      <li>Made for melanin-rich skin &amp; natural hair</li>
-      <li>Rooted in faith, crafted with intention</li>
-      <li>Delivered straight to your door</li>
+      <li>Clean &amp; conscious ingredients</li>
+      <li>Suitable for all skin and hair types</li>
+      <li>Crafted with intention</li>
+      <li>Handmade in small batches for quality and freshness</li>
     </ul>
     <div class="hero-ctas fade-up delay-4">
       <a href="#products" class="btn-primary">Shop the collection</a>
@@ -299,17 +304,19 @@
 
 <!-- PROOF BAR -->
 <div class="proof-bar">
-  <div class="proof-item fade-up"><span class="proof-val">100%</span><span class="proof-lbl">Natural ingredients</span></div>
-  <div class="proof-item fade-up delay-1"><span class="proof-val">0</span><span class="proof-lbl">Harsh chemicals</span></div>
-  <div class="proof-item fade-up delay-2"><span class="proof-val">Faith</span><span class="proof-lbl">In every bottle</span></div>
+  <div class="proof-item fade-up"><span class="proof-val">&#10022;</span><span class="proof-lbl">Quality over quantity</span></div>
+  <div class="proof-item fade-up delay-1"><span class="proof-val">&#10022;</span><span class="proof-lbl">Thoughtfully sourced ingredients</span></div>
+  <div class="proof-item fade-up delay-2"><span class="proof-val">&#10022;</span><span class="proof-lbl">Every product made with love</span></div>
+  <div class="proof-item fade-up delay-3"><span class="proof-val">&#10022;</span><span class="proof-lbl">Nut-free options available</span></div>
 </div>
 
 <!-- PRODUCTS -->
 <section class="products-section" id="products">
   <div class="section-eyebrow">The collection</div>
-  <h2 class="section-title fade-up">Two products. <em>One purpose.</em></h2>
+  <h2 class="section-title fade-up">Three products, <em>one purpose.</em></h2>
   <p class="section-sub fade-up delay-1">To honour the body you were given — with ingredients as pure and intentional as the life you're building.</p>
   <div class="products-grid">
+
     <div class="product-card fade-up delay-1" onclick="openModal('butter')">
       <div class="product-img-wrap">
         <img src="body-butter.jpg" alt="Whipped All-Over Body Butter">
@@ -317,10 +324,11 @@
       </div>
       <span class="product-tag">Body care</span>
       <h3 class="product-name">Whipped All-Over Body Butter</h3>
-      <p class="product-desc">Deep moisture that sinks in fast, locks in all day, and leaves skin feeling like it was made to glow. Rich, whipped, and fast-absorbing — for the woman who refuses to settle for dry skin or synthetic shortcuts.</p>
-      <p class="product-ingredients">Shea butter &nbsp;·&nbsp; Cocoa butter &nbsp;·&nbsp; Vitamin E &nbsp;·&nbsp; Coconut oil</p>
+      <p class="product-desc">Deep, lasting moisture that melts into your skin — locking in hydration all day and leaving you with a natural, effortless glow. Rich, airy, and beautifully whipped for the woman who won't settle for dryness.</p>
+      <p class="product-ingredients">Butyrospermum Parkii (Shea) butter &nbsp;·&nbsp; Theobroma Cacao (Cocoa) seed butter &nbsp;·&nbsp; Cocos Nucifera (Coconut) oil &nbsp;·&nbsp; Ricinus Communis (Castor) seed oil &nbsp;·&nbsp; Tocopherol</p>
       <p class="product-quote">"Your body is a temple. Treat it as one."</p>
     </div>
+
     <div class="product-card fade-up delay-2" onclick="openModal('oil')">
       <div class="product-img-wrap">
         <img src="hair-oil.jpg" alt="Savior's Hair Grow Oil">
@@ -328,10 +336,23 @@
       </div>
       <span class="product-tag">Hair care</span>
       <h3 class="product-name">Savior's Hair Grow Oil</h3>
-      <p class="product-desc">Eight natural oils working together to strengthen, nourish, and grow your crown from root to tip. Peppermint to wake your scalp, hibiscus to feed your roots, castor to lock in length. For the woman who knows her power is in her crown.</p>
-      <p class="product-ingredients">Olive &nbsp;·&nbsp; Tea tree &nbsp;·&nbsp; Peppermint &nbsp;·&nbsp; Castor &nbsp;·&nbsp; Pomegranate seed &nbsp;·&nbsp; Almond &nbsp;·&nbsp; Jojoba &nbsp;·&nbsp; Hibiscus</p>
+      <p class="product-desc">A highly potent, nutrient-dense natural oil blend designed for hair growth, scalp health, and intensive conditioning. Over 10 carefully selected oils working in harmony — lightweight yet powerful.</p>
+      <p class="product-ingredients">Olea Europaea (Olive) fruit oil &nbsp;·&nbsp; Trigonella Foenum-Graecum seed extract &nbsp;·&nbsp; Hibiscus Sabdariffa flower extract &nbsp;·&nbsp; Melaleuca alternifolia (Tea tree) leaf oil &nbsp;·&nbsp; Mentha Piperita (Peppermint) oil &nbsp;·&nbsp; Ricinus Communis (Castor) seed oil &nbsp;·&nbsp; + more</p>
       <p class="product-quote">"Your power is within your hair."</p>
     </div>
+
+    <div class="product-card fade-up delay-3" onclick="openModal('serum')">
+      <div class="product-img-wrap product-img-placeholder">
+        <div class="placeholder-label">Photo coming soon</div>
+        <div class="product-img-overlay"><span class="overlay-label">View product</span></div>
+      </div>
+      <span class="product-tag">Skin care</span>
+      <h3 class="product-name">Face Serum</h3>
+      <p class="product-desc">Coming soon — a thoughtfully crafted face serum to complete your Natural Saviour ritual. Description and full details to follow.</p>
+      <p class="product-ingredients">Full ingredients list coming soon</p>
+      <p class="product-quote">"Glow from within."</p>
+    </div>
+
   </div>
 </section>
 
@@ -381,6 +402,7 @@
         <p class="modal-ingredients-label">Ingredients</p>
         <p class="modal-ingredients" id="modal-ingredients"></p>
         <p class="modal-quote" id="modal-quote"></p>
+        <p class="modal-note" id="modal-note"></p>
       </div>
       <div class="modal-pinned">
         <div class="qty-row">
@@ -457,15 +479,24 @@
   const products = {
     butter: {
       tag: 'Body care', name: 'Whipped All-Over Body Butter', img: 'body-butter.jpg',
-      desc: 'Deep moisture that sinks in fast, locks in all day, and leaves skin feeling like it was made to glow. Rich, whipped, and fast-absorbing — crafted for women who refuse to settle for dry skin or synthetic shortcuts. Shea and cocoa butter combine to seal in hydration while Vitamin E works quietly beneath the surface to repair and restore.',
-      ingredients: 'Shea butter · Cocoa butter · Vitamin E · Coconut oil',
-      quote: '"Your body is a temple. Treat it as one."'
+      desc: 'Deep, lasting moisture that melts into your skin, absorbing quickly whilst keeping hydration locked in all day and leaving you with a natural, effortless glow and smell. Rich, airy and beautifully whipped, this body butter is made for the woman who won\'t settle for dryness or synthetic shortcuts.\n\nPerfect to apply to damp skin to seal in moisture and just as essential throughout the day whenever your skin needs a soft, nourishing touch.',
+      ingredients: 'Butyrospermum Parkii (Shea) butter · Theobroma Cacao (Cocoa) seed butter · Cocos Nucifera (Coconut) oil · Ricinus Communis (Castor) seed oil · Tocopherol',
+      quote: '"Your body is a temple. Treat it as one."',
+      note: ''
     },
     oil: {
       tag: 'Hair care', name: "Savior's Hair Grow Oil", img: 'hair-oil.jpg',
-      desc: 'Eight natural oils working in harmony to strengthen, nourish, and grow your crown from root to tip. Peppermint awakens the scalp, hibiscus feeds the follicles, castor locks in length. 100ml of pure intention — for the woman who knows her power lives in her crown.',
-      ingredients: 'Olive oil · Tea tree · Peppermint · Castor oil · Pomegranate seed oil · Almond oil · Jojoba oil · Hibiscus',
-      quote: '"Your power is within your hair."'
+      desc: 'A highly potent, nutrient-dense, natural oil blend specifically designed for hair growth, scalp health, and intensive conditioning.\n\nCrafted with over 10 carefully selected oils, this luxurious blend works in perfect harmony to stimulate growth, deeply nourish, and restore your hair from root to tip. Lightweight yet powerful, it softens, strengthens, and enhances shine without heaviness, while a refreshing touch of peppermint and tea tree awakens and soothes the scalp.\n\nMore than haircare, it\'s a ritual of care — designed to protect your length, elevate your routine, and honour your crown with intention.\n\nHow to use:\n• Pre-Wash Treatment: Massage into scalp and ends 30–60 mins before washing.\n• Scalp Stimulating Oil: A few drops massaged into the scalp to encourage growth.\n• Split End Treatment: Apply to dry ends to seal and smooth.\n\n⚠ Caution: Do not apply heat after applying the oil.',
+      ingredients: 'Olea Europaea (Olive) fruit oil · Trigonella Foenum-Graecum seed extract · Hibiscus Sabdariffa flower extract · Eugenia Caryophyllus (Clove) bud extract · Rosmarinus officinalis (Rosemary) leaf extract · Melaleuca alternifolia (Tea tree) leaf oil · Mentha Piperita (Peppermint) oil · Ricinus Communis (Castor) seed oil · Punica Granatum (Pomegranate) seed oil · Prunus Amygdalus Dulcis (Sweet Almond) oil · Simmondsia Chinensis (Jojoba) seed oil · Cucurbita Pepo Seed Oil (Pumpkin Seed)',
+      quote: '"Your power is within your hair."',
+      note: 'This blend contains essential oils (Tea Tree, Peppermint) — a patch test is recommended, particularly for sensitive skin.'
+    },
+    serum: {
+      tag: 'Skin care', name: 'Face Serum', img: '',
+      desc: 'Coming soon — a thoughtfully crafted face serum to complete your Natural Saviour ritual. Full description and details to follow.',
+      ingredients: 'Full ingredients list coming soon',
+      quote: '"Glow from within."',
+      note: ''
     }
   };
 
@@ -479,13 +510,22 @@
     const p = products[key];
     qty = 1;
     document.getElementById('qty-display').textContent = '1';
-    document.getElementById('modal-img').src = p.img;
-    document.getElementById('modal-img').alt = p.name;
+    if (p.img) {
+      document.getElementById('modal-img').src = p.img;
+      document.getElementById('modal-img').alt = p.name;
+      document.getElementById('modal-img').style.display = 'block';
+    } else {
+      document.getElementById('modal-img').style.display = 'none';
+    }
     document.getElementById('modal-tag').textContent = p.tag;
     document.getElementById('modal-name').textContent = p.name;
-    document.getElementById('modal-desc').textContent = p.desc;
+    // Render newlines as line breaks
+    document.getElementById('modal-desc').innerHTML = p.desc.replace(/\n/g, '<br>');
     document.getElementById('modal-ingredients').textContent = p.ingredients;
     document.getElementById('modal-quote').textContent = p.quote;
+    const noteEl = document.getElementById('modal-note');
+    if (p.note) { noteEl.textContent = p.note; noteEl.style.display = 'block'; }
+    else { noteEl.style.display = 'none'; }
     document.getElementById('modal-backdrop').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
