@@ -18,7 +18,7 @@
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; background: rgba(253,250,246,0.93); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gold-light); }
   .nav-logo { height: 52px; }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
   .nav-links a { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown-light); text-decoration: none; font-weight: 400; }
   .nav-links a:hover { color: var(--gold-deep); }
   .nav-cta { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 24px; border: 1px solid var(--gold); color: var(--gold-deep); background: transparent; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; transition: all 0.3s; }
@@ -272,7 +272,7 @@
   <img src="natural-savior-logo.png" alt="Natural Savior" class="nav-logo">
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
-    <li><a href="#story">Our story</a></li>
+    <li><a href="#story">Our Story</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="openContact()">Join the waitlist</button>
@@ -342,15 +342,15 @@
     </div>
 
     <div class="product-card fade-up delay-3" onclick="openModal('serum')">
-      <div class="product-img-wrap product-img-placeholder">
-        <div class="placeholder-label">Photo coming soon</div>
+      <div class="product-img-wrap">
+        <img src="face-serum.jpg" alt="Rosa Facial Serum">
         <div class="product-img-overlay"><span class="overlay-label">View product</span></div>
       </div>
       <span class="product-tag">Skin care</span>
-      <h3 class="product-name">Face Serum</h3>
-      <p class="product-desc">Coming soon — a thoughtfully crafted face serum to complete your Natural Saviour ritual. Description and full details to follow.</p>
-      <p class="product-ingredients">Full ingredients list coming soon</p>
-      <p class="product-quote">"Glow from within."</p>
+      <h3 class="product-name">Rosa Facial Serum</h3>
+      <p class="product-desc">A lightweight blend of thoughtfully selected, nutrient-rich oils — hydrating, softening and restoring balance so your skin feels calm, smooth and naturally radiant.</p>
+      <p class="product-ingredients">Sweet Almond Oil &nbsp;·&nbsp; Apricot Kernel Oil &nbsp;·&nbsp; Rosehip Oil &nbsp;·&nbsp; Strawberry Seed Oil &nbsp;·&nbsp; Vitamin E &nbsp;·&nbsp; Tea Tree &nbsp;·&nbsp; Rose Petals</p>
+      <p class="product-quote">"Because your skin deserves the best."</p>
     </div>
 
   </div>
@@ -452,17 +452,14 @@
 
 <!-- FOOTER — no logo -->
 <footer>
-  <p class="footer-copy">&copy; 2024 Natural Savior. All rights reserved.</p>
+  <p class="footer-copy">&copy; <span id="footer-year"></span> Natural Saviour. All rights reserved. &nbsp;|&nbsp; <a href="privacy.html" style="color:rgba(255,255,255,0.5);text-decoration:underline;font-size:12px;">Privacy Policy</a></p>
   <div class="footer-socials">
-    <!-- Facebook -->
     <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
     </a>
-    <!-- TikTok -->
     <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.16 8.16 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
     </a>
-    <!-- Instagram -->
     <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
     </a>
@@ -471,6 +468,9 @@
 </footer>
 
 <script>
+  // Auto-update copyright year
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
@@ -492,11 +492,11 @@
       note: 'This blend contains essential oils (Tea Tree, Peppermint) — a patch test is recommended, particularly for sensitive skin.'
     },
     serum: {
-      tag: 'Skin care', name: 'Face Serum', img: '',
-      desc: 'Coming soon — a thoughtfully crafted face serum to complete your Natural Saviour ritual. Full description and details to follow.',
-      ingredients: 'Full ingredients list coming soon',
-      quote: '"Glow from within."',
-      note: ''
+      tag: 'Skin care', name: 'Rosa Facial Serum', img: 'face-serum.jpg',
+      desc: 'A lightweight blend of thoughtfully selected, nutrient-rich oils that work to hydrate, soften and restore balance — helping your skin feel calm, smooth and naturally radiant.\n\nThis face serum is formulated to gently restore and support your skin using simple, honest ingredients.\n\nHow to use:\nApply 1–2 drops to clean, slightly damp skin and gently press into the face and neck. Use morning and evening as part of your daily ritual. A little goes a long way — allow the serum to absorb fully before layering.',
+      ingredients: 'Prunus Amygdalus Dulcis (Sweet Almond) Oil · Prunus Armeniaca (Apricot) Kernel Oil · Rosa Canina (Rosehip) Fruit Oil · Fragaria Ananassa (Strawberry) Seed Oil · Tocopherol (Vitamin E) · Melaleuca Alternifolia (Tea Tree) Leaf Oil · Rosa Damascena (Rose) Petals',
+      quote: '"Because your skin deserves the best."',
+      note: 'External use only. Patch test recommended before use.'
     }
   };
 
