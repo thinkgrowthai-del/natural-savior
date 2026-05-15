@@ -174,7 +174,17 @@
   .contact-close { position: absolute; top: 12px; right: 14px; background: none; border: none; cursor: pointer; font-size: 22px; color: var(--brown-light); line-height: 1; transition: color 0.2s; }
   .contact-close:hover { color: var(--brown); }
 
-  /* ANIMATIONS */
+  /* COOKIE BANNER */
+  .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 900; background: var(--brown); color: rgba(255,255,255,0.85); padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 2px solid var(--gold); transform: translateY(100%); transition: transform 0.4s ease; }
+  .cookie-banner.visible { transform: translateY(0); }
+  .cookie-text { font-size: 13px; line-height: 1.6; flex: 1; min-width: 240px; }
+  .cookie-text a { color: var(--gold-light); text-decoration: underline; }
+  .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-accept { padding: 10px 24px; background: var(--sage); color: var(--white); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: background 0.3s; }
+  .cookie-accept:hover { background: var(--sage-deep); }
+  .cookie-reject { padding: 10px 24px; background: transparent; color: rgba(255,255,255,0.7); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; transition: all 0.3s; }
+  .cookie-reject:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+  @media (max-width: 600px) { .cookie-banner { padding: 16px 20px; } .cookie-btns { width: 100%; } .cookie-accept, .cookie-reject { flex: 1; text-align: center; } }
   .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
   .delay-1 { transition-delay: 0.1s; }
@@ -282,7 +292,7 @@
 <!-- HERO -->
 <section class="hero" style="padding:0;">
   <div class="hero-left">
-    <div class="hero-eyebrow fade-up">Faith-led self-care</div>
+    <div class="hero-eyebrow fade-up" style="margin-top:16px;">Faith-led self-care</div>
     <h1 class="hero-headline fade-up delay-1">Your body is a <em>temple.</em> It's time to treat it like one.</h1>
     <p class="hero-sub fade-up delay-2">Natural Saviour creates handcrafted self-care products using thoughtfully sourced ingredients – inviting you back to a more natural, intentional way of caring for yourself.</p>
     <ul class="hero-bullets fade-up delay-3">
@@ -297,8 +307,8 @@
     </div>
   </div>
   <div class="hero-right">
-    <img src="natural-savior-logo.png" alt="Natural Savior" class="hero-logo-large">
-    <p class="hero-verse">"She is clothed with strength and dignity,<br>and she laughs without fear of the future."<br><span style="font-size:12px;letter-spacing:0.1em;font-style:normal;font-family:'Jost',sans-serif;color:var(--gold);">Proverbs 31:25</span></p>
+    <img src="natural-savior-logo.png" alt="Natural Savior" class="hero-logo-large" style="margin-top:32px;">
+    <p class="hero-verse" style="margin-top:28px;">"She is clothed with strength and dignity,<br>and she laughs without fear of the future."<br><span style="font-size:12px;letter-spacing:0.1em;font-style:normal;font-family:'Jost',sans-serif;color:var(--gold);">Proverbs 31:25</span></p>
     <div class="hero-right-deco"></div>
   </div>
 </section>
@@ -344,13 +354,13 @@
 
     <div class="product-card fade-up delay-3" onclick="openModal('serum')">
       <div class="product-img-wrap">
-        <img src="face-serum.jpg" alt="Rosa Facial Serum">
+        <img src="face-serum.jpg" alt="Rose Facial Serum">
         <div class="product-img-overlay"><span class="overlay-label">View product</span></div>
       </div>
       <span class="product-tag">Skin care</span>
-      <h3 class="product-name">Rosa Facial Serum</h3>
+      <h3 class="product-name">Rose Facial Serum</h3>
       <p class="product-desc">A lightweight blend of thoughtfully selected, nutrient-rich oils — hydrating, softening and restoring balance so your skin feels calm, smooth and naturally radiant.</p>
-      <p class="product-ingredients">Sweet Almond Oil &nbsp;·&nbsp; Apricot Kernel Oil &nbsp;·&nbsp; Rosehip Oil &nbsp;·&nbsp; Strawberry Seed Oil &nbsp;·&nbsp; Vitamin E &nbsp;·&nbsp; Tea Tree &nbsp;·&nbsp; Rose Petals</p>
+      <p class="product-ingredients">Prunus Amygdalus Dulcis (Sweet Almond) Oil &nbsp;·&nbsp; Prunus Armeniaca (Apricot) Kernel Oil &nbsp;·&nbsp; Rosa Canina (Rosehip) Fruit Oil &nbsp;·&nbsp; Fragaria Ananassa (Strawberry) Seed Oil &nbsp;·&nbsp; Tocopherol (Vitamin E) &nbsp;·&nbsp; Melaleuca Alternifolia (Tea Tree) Leaf Oil &nbsp;·&nbsp; Rosa Damascena (Rose) Petals</p>
       <p class="product-quote">"Because your skin deserves the best."</p>
     </div>
 
@@ -366,11 +376,16 @@
   </div>
   <div class="founder-right">
     <div class="founder-name">Donea Maitland — Founder</div>
-    <p class="founder-pull fade-up">"I used to read the back of every product I bought — and what I found frightened me. Chemicals I couldn't pronounce, fillers that did nothing, ingredients that felt like they were made for anyone but me."</p>
-    <p class="founder-body fade-up delay-1">So I went back to the source. I started making my own — drawing from natural ingredients I could trust, guided by the belief that how we care for ourselves is an act of worship. Natural Savior was born out of that conviction: that you deserve products as pure and intentional as the life you're building.</p>
-    <p class="founder-body fade-up delay-2">Every tin and every bottle carries a scripture, a reminder, and a promise — that what you put on your body matters, and you are worth the very best.</p>
-    <p class="founder-body fade-up delay-3" style="font-style:italic;color:var(--gold-deep);">"This isn't just skincare. It's self-care as a spiritual practice."</p>
-    <p class="founder-signature">Donea x</p>
+    <p class="founder-pull fade-up">"Over the last few years, life circumstances have pulled me closer to nature. In this process, I became more conscious of what I was putting on my skin and in my hair."</p>
+    <p class="founder-body fade-up delay-1">I came to the realisation that the products I was buying weren't doing what they promised and were ultimately made with harsh chemicals, some of which I had never heard of. My skin was losing its glow, and my hair just wasn't feeling nourished or getting healthy, despite trying numerous products on the market.</p>
+    <p class="founder-body fade-up delay-1">So, I started researching, learning and experimenting in my kitchen. What began as a quest to address my dry, dull skin and combat slow hair loss evolved into the creation of my own formulas. Using simple, blended ingredients that I understood and could trust, I slowly started to see positive changes — not just on my skin and hair, but in the way I saw self-care altogether.</p>
+    <p class="founder-body fade-up delay-2">I realised how powerful it is to know exactly what you're using. To choose ingredients with intention. To stop relying on products just because of a name or a promise and instead use things that genuinely support my skin and hair.</p>
+    <p class="founder-body fade-up delay-2">People began to ask what I was using on my skin. My once dull complexion was now glowing, and my hair was starting to revive after years of damage from relaxers, heat, colour treatments, and the list goes on. I was reluctant to share at first, but when I realised how much it was also helping my family and friends, I made the decision that I want to help as many people as I possibly could — because I knew we weren't alone, and in fact, millions of people are experiencing the same thing.</p>
+    <p class="founder-body fade-up delay-3">That's why Natural Saviour was born. To help others feel and become the better versions of themselves, as well as offering simple, honest skincare and haircare that's thoughtfully made and does what it's meant to do.</p>
+    <p class="founder-body fade-up delay-3">Every formula is created with intention, integrity, and care — because you deserve to know what you're putting on your body and in your hair. Making my own products has completely changed my life. And now, this journey is bigger than me.</p>
+    <p class="founder-body fade-up delay-3">It's about all of us learning, choosing better, and caring for ourselves in a more conscious way. If you've ever felt the same, you're already part of this journey.</p>
+    <p class="founder-body fade-up delay-3" style="font-style:italic;color:var(--gold-deep);">Welcome to the NS Family!</p>
+    <p class="founder-signature">Love, Donea x</p>
   </div>
 </section>
 
@@ -468,7 +483,32 @@
   <p class="footer-verse">"She is more precious than rubies."<br>Proverbs 3:15</p>
 </footer>
 
+<!-- COOKIE CONSENT BANNER -->
+<div class="cookie-banner" id="cookie-banner">
+  <p class="cookie-text">We use cookies to improve your experience on our site and to analyse traffic. By clicking "Accept", you consent to our use of cookies. You can reject non-essential cookies without affecting your browsing. Read our <a href="privacy.html">Privacy Policy</a> for more information.</p>
+  <div class="cookie-btns">
+    <button class="cookie-reject" onclick="rejectCookies()">Reject</button>
+    <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
+  </div>
+</div>
+
 <script>
+  // Cookie consent
+  (function() {
+    const consent = localStorage.getItem('ns_cookie_consent');
+    if (!consent) {
+      setTimeout(() => document.getElementById('cookie-banner').classList.add('visible'), 800);
+    }
+  })();
+  function acceptCookies() {
+    localStorage.setItem('ns_cookie_consent', 'accepted');
+    document.getElementById('cookie-banner').classList.remove('visible');
+  }
+  function rejectCookies() {
+    localStorage.setItem('ns_cookie_consent', 'rejected');
+    document.getElementById('cookie-banner').classList.remove('visible');
+  }
+
   // Auto-update copyright year
   document.getElementById('footer-year').textContent = new Date().getFullYear();
 
@@ -493,7 +533,7 @@
       note: 'This blend contains essential oils (Tea Tree, Peppermint) — a patch test is recommended, particularly for sensitive skin.'
     },
     serum: {
-      tag: 'Skin care', name: 'Rosa Facial Serum', img: 'face-serum.jpg',
+      tag: 'Skin care', name: 'Rose Facial Serum', img: 'face-serum.jpg',
       desc: 'A lightweight blend of thoughtfully selected, nutrient-rich oils that work to hydrate, soften and restore balance — helping your skin feel calm, smooth and naturally radiant.\n\nThis face serum is formulated to gently restore and support your skin using simple, honest ingredients.\n\nHow to use:\nApply 1–2 drops to clean, slightly damp skin and gently press into the face and neck. Use morning and evening as part of your daily ritual. A little goes a long way — allow the serum to absorb fully before layering.',
       ingredients: 'Prunus Amygdalus Dulcis (Sweet Almond) Oil · Prunus Armeniaca (Apricot) Kernel Oil · Rosa Canina (Rosehip) Fruit Oil · Fragaria Ananassa (Strawberry) Seed Oil · Tocopherol (Vitamin E) · Melaleuca Alternifolia (Tea Tree) Leaf Oil · Rosa Damascena (Rose) Petals',
       quote: '"Because your skin deserves the best."',
